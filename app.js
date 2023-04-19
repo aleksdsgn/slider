@@ -26,6 +26,25 @@ downButton.addEventListener('click', () => {
   changeSlide('down');
 });
 
+// слушатель нажатия кнопок
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowUp') {
+    changeSlide('up');
+  } else if (event.key === 'ArrowDown') {
+    changeSlide('down');
+  }
+})
+
+// слушатель колёсика мыши
+document.addEventListener('wheel', (event) => {
+  console.log(event.deltaY);
+  if (event.deltaY === -100) {
+    changeSlide('up');
+  } else if (event.deltaY === 100) {
+    changeSlide('down');
+  }
+})
+
 // переключение слайдов в зависимости от направления
 function changeSlide(direction) {
   // если нажали вверх
